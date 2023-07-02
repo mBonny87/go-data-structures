@@ -2,11 +2,6 @@ package linkedlist
 
 import "fmt"
 
-// This method should reverse the order of the nodes in the linked list.
-// The reversal should be done in-place,
-// meaning you should modify the existing nodes and pointers without creating new nodes.
-// The Head field should point to the new head of the reversed linked list.
-
 type SinglyLinkedList struct {
 	head *Node
 }
