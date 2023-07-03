@@ -7,10 +7,10 @@ type SinglyLinkedList struct {
 }
 
 func (ll *SinglyLinkedList) Insert(v int) {
-	tail := &Node{value: v, next: nil}
+	new := &Node{value: v, next: nil}
 
 	if ll.head == nil {
-		ll.head = tail
+		ll.head = new
 		return
 	}
 
@@ -19,7 +19,7 @@ func (ll *SinglyLinkedList) Insert(v int) {
 		curr = curr.next // next pointer
 	}
 
-	curr.next = tail
+	curr.next = new
 }
 
 func (ll *SinglyLinkedList) Print() {
