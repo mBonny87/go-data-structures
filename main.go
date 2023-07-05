@@ -49,8 +49,36 @@ import (
 func main() {
 	dll := linkedlist.DoublyLinkedList{}
 
-	dll.InsertAtBeginning(5)
-	dll.InsertAtBeginning(10)
+	// dll.InsertAtBeginning(5)
+	// dll.InsertAtBeginning(6)
+	// dll.InsertAtBeginning(7)
+	// dll.InsertAtBeginning(8)
+	// dll.InsertAtBeginning(9)
+	// dll.InsertAtBeginning(10)
+	// // dll.DeleteAtEnd()
+	// // dll.DeleteAtEnd()
+	// // dll.DeleteAtEnd()
+	// dll.DeleteAtEnd()
+	// dll.DeleteAtBeginning()
+
+	dll.Shift(15)
+	dll.Shift(10)
+	dll.Shift(5)
+	dll.Push(20)
+	dll.Push(25)
+
+	dll.Unshift()
+	dll.Unshift()
+	dll.Pop()
+	dll.Pop()
+
+	newNode := &linkedlist.Node{ //memory address because the method is expeting a pointer to
+		Value: 20,
+		Prev:  nil,
+		Next:  nil,
+	}
+	dll.PushAfter(newNode, 15)
+	dll.PushAfter(newNode, 15)
 
 	dll.Print()
 }

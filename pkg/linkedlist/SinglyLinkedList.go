@@ -7,7 +7,7 @@ type SinglyLinkedList struct {
 }
 
 func (ll *SinglyLinkedList) Insert(v int) {
-	new := &Node{value: v, next: nil}
+	new := &Node{Value: v, Next: nil}
 
 	if ll.head == nil {
 		ll.head = new
@@ -15,22 +15,18 @@ func (ll *SinglyLinkedList) Insert(v int) {
 	}
 
 	curr := ll.head //pointer
-	for curr.next != nil {
-		curr = curr.next // next pointer
+	for curr.Next != nil {
+		curr = curr.Next // Next pointer
 	}
 
-	curr.next = new
+	curr.Next = new
 }
 
 func (ll *SinglyLinkedList) Print() {
 	curr := ll.head
-	if curr == nil {
-		fmt.Println("Empty SinglyLinkedList")
-		return
-	}
 	for curr != nil {
-		fmt.Println(curr.value)
-		curr = curr.next
+		fmt.Println("Value:", curr.Value)
+		curr = curr.Next
 	}
 }
 
@@ -40,32 +36,32 @@ func (ll *SinglyLinkedList) Search(v int) bool {
 		return false
 	}
 	for curr != nil {
-		if v == curr.value {
+		if v == curr.Value {
 			return true
 		}
-		curr = curr.next
+		curr = curr.Next
 	}
 	return false
 }
 
 func (ll *SinglyLinkedList) Delete(v int) {
 	if ll.head == nil {
-		fmt.Println("Linked List is empty, cannot delete this value")
+		fmt.Println("Linked List is empty, cannot delete this Value")
 		return
 	}
-	if ll.head.value == v {
-		ll.head = ll.head.next
+	if ll.head.Value == v {
+		ll.head = ll.head.Next
 		return
 	}
 
 	curr := ll.head
-	for curr.next != nil {
-		if curr.next.value == v {
-			curr.next = curr.next.next
+	for curr.Next != nil {
+		if curr.Next.Value == v {
+			curr.Next = curr.Next.Next
 			return
 		}
 
-		curr = curr.next
+		curr = curr.Next
 	}
 
 }
@@ -76,7 +72,7 @@ func (ll *SinglyLinkedList) Length() int {
 
 	for curr != nil {
 		count++
-		curr = curr.next
+		curr = curr.Next
 	}
 
 	return count
@@ -88,19 +84,19 @@ func (ll *SinglyLinkedList) Reverse() SinglyLinkedList {
 		fmt.Println("Cannot reverse empty linked list")
 		return *ll
 	}
-	if ll.head.next == nil {
+	if ll.head.Next == nil {
 		return *ll
 	}
 
 	var prev *Node
 	curr := ll.head
-	var next *Node
+	var Next *Node
 
 	for curr != nil {
-		next = curr.next
-		curr.next = prev
+		Next = curr.Next
+		curr.Next = prev
 		prev = curr
-		curr = next
+		curr = Next
 	}
 
 	ll.head = prev
