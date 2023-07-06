@@ -32,6 +32,7 @@ func TestDoublyLinkedList(t *testing.T) {
 		t.Errorf("Expected 30 both Head and Tail but got %v, %v:", dll.head.Value, dll.tail.Value)
 	}
 
+	// Test PushAfter()
 	dll.PushAfter(&Node{
 		Value: 30,
 		Prev:  nil,
@@ -42,20 +43,14 @@ func TestDoublyLinkedList(t *testing.T) {
 		t.Errorf("Expected 20 as Head but got %v:", dll.head.Value)
 	}
 
-	// Test Search()
-	// dll.InsertAtEnd(30)
-	// dll.InsertAtEnd(40)
-	// dll.InsertAtEnd(50)
-	// node := dll.Search(40)
-	// fmt.Printf("Searching for 40: Node found with value %d\n", node.Value) // Output: Node found with value 40
+	dll.DeleteNode(20)
 
-	// // Test Contains()
-	// fmt.Println("Contains 30:", dll.Contains(30)) // Output: true
-	// fmt.Println("Contains 60:", dll.Contains(60)) // Output: false
+	if dll.head.Next != nil {
+		t.Errorf("Expected one element but dll.head.Next but exist")
+	}
 
-	// // Test ToArray()
-	// arr := dll.ToArray()
-	// fmt.Println("Array representation of the list:", arr) // Output: [30 40]
+	mySlice := dll.ToArray()
+	if len(mySlice) != 1 {
+		t.Errorf("Expected length 1 but go %v", len(mySlice))
+	}
 }
-
-// Testing case scenario

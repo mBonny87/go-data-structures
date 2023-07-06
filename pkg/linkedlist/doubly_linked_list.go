@@ -85,7 +85,6 @@ func (dll *DoublyLinkedList) PushAfter(node *Node, v int) {
 			break
 		}
 		if v == curr.Value {
-			// to be implemented
 			node.Next = curr.Next
 			node.Prev = curr
 			curr.Next.Prev = node
@@ -105,16 +104,49 @@ func (dll *DoublyLinkedList) Print() {
 	}
 }
 
-func (dll *DoublyLinkedList) DeleteNode(node *Node) {
-	// To be implemented
+func (dll *DoublyLinkedList) DeleteNode(v int) {
+	if dll.head == nil {
+		return
+	}
+	if dll.head.Next == nil && dll.head.Value == v {
+		dll.head = nil
+		dll.tail = nil
+		return
+	}
+
+	curr := dll.head
+	for curr != nil {
+		if curr.Value == v {
+			if curr.Prev == nil {
+				dll.head = dll.head.Next
+				dll.head.Prev = nil
+				break
+			}
+			if curr.Next == nil {
+				dll.tail = dll.tail.Prev
+				dll.tail.Next = nil
+				break
+			}
+			// curr.Prev = curr.Next
+			// curr.Next = curr.Prev
+			curr.Prev, curr.Next = curr.Next, curr.Prev
+			break
+		}
+		curr = curr.Next
+	}
 }
 
-// func (dll *DoublyLinkedList) Contains(node *Node) bool {
-// 	// To be implemented
-// }
-// func (dll *DoublyLinkedList) Size(node *Node) int {
-// 	// To be implemented
-// }
-// func (dll *DoublyLinkedList) ToArray() []int {
-// 	// To be implemented
-// }
+func (dll *DoublyLinkedList) ToArray() []int {
+	if dll.head == nil {
+		return []int{}
+	}
+
+	curr := dll.head
+	result := []int{}
+	for curr != nil {
+		result = append(result, curr.Value)
+
+		curr = curr.Next
+	}
+	return result
+}
