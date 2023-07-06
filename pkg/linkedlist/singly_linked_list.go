@@ -22,14 +22,6 @@ func (ll *SinglyLinkedList) Insert(v int) {
 	curr.Next = new
 }
 
-func (ll *SinglyLinkedList) Print() {
-	curr := ll.head
-	for curr != nil {
-		fmt.Println("Value:", curr.Value)
-		curr = curr.Next
-	}
-}
-
 func (ll *SinglyLinkedList) Search(v int) bool {
 	curr := ll.head
 	if curr == nil {
@@ -102,4 +94,12 @@ func (ll *SinglyLinkedList) Reverse() SinglyLinkedList {
 	ll.head = prev
 
 	return *ll
+}
+
+func (ll *SinglyLinkedList) Print() {
+	curr := ll.head
+	for curr != nil {
+		fmt.Println("Value:", curr.Value)
+		curr = curr.Next
+	}
 }
