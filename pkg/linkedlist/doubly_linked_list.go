@@ -1,6 +1,8 @@
 package linkedlist
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type DoublyLinkedList struct {
 	head *Node
@@ -80,11 +82,15 @@ func (dll *DoublyLinkedList) PushAfter(node *Node, v int) {
 			curr.Next = node
 			node.Prev = curr
 			dll.tail = node
-			return
+			break
 		}
 		if v == curr.Value {
 			// to be implemented
-			return
+			node.Next = curr.Next
+			node.Prev = curr
+			curr.Next.Prev = node
+			curr.Next = node
+			break
 		}
 		curr = curr.Next
 	}

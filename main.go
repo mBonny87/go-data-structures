@@ -77,8 +77,13 @@ func main() {
 		Prev:  nil,
 		Next:  nil,
 	}
+	anotherNewNode := &linkedlist.Node{ //common mistakes, if you use the same node, loop!
+		Value: 20,
+		Prev:  nil,
+		Next:  nil,
+	}
 	dll.PushAfter(newNode, 15)
-	dll.PushAfter(newNode, 15)
+	dll.PushAfter(anotherNewNode, 15)
 
 	dll.Print()
 }
