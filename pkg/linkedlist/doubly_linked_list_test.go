@@ -8,7 +8,7 @@ func TestDoublyLinkedList(t *testing.T) {
 	dll := DoublyLinkedList{}
 
 	// Test Shift()
-	dll.Shift(10)
+	dll.Unshift(10)
 	if dll.head.Value != 10 {
 		t.Errorf("Expected 10 as Head but got %v:", dll.head.Value)
 	}
@@ -21,7 +21,7 @@ func TestDoublyLinkedList(t *testing.T) {
 	}
 
 	// Test Unshift()
-	dll.Unshift()
+	dll.Shift()
 	if dll.head.Value != 20 {
 		t.Errorf("Expected 20 as Head but got %v:", dll.head.Value)
 	}

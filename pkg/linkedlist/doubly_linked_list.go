@@ -9,7 +9,7 @@ type DoublyLinkedList struct {
 	tail *Node
 }
 
-func (dll *DoublyLinkedList) Shift(v int) {
+func (dll *DoublyLinkedList) Unshift(v int) {
 	if dll.head == nil {
 		dll.head = &Node{Value: v, Prev: nil, Next: nil}
 		return
@@ -43,7 +43,7 @@ func (dll *DoublyLinkedList) Push(v int) {
 
 }
 
-func (dll *DoublyLinkedList) Unshift() {
+func (dll *DoublyLinkedList) Shift() {
 	if dll.head == nil {
 		return
 	}

@@ -27,7 +27,7 @@ func TestCircularLinkedList(t *testing.T) {
 	}
 
 	// Chech head after shift
-	cll.Shift(5)
+	cll.Unshift(5)
 	if cll.Head.Value != 5 {
 		t.Errorf("Expected 5 as the head but got %v", cll.Head.Value)
 	}

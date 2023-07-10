@@ -24,7 +24,7 @@ func (cll *CircularLinkedList) Push(v int) {
 	}
 }
 
-func (cll *CircularLinkedList) Shift(v int) {
+func (cll *CircularLinkedList) Unshift(v int) {
 	if cll.Head == nil {
 		cll.Head = &Node{
 			Value: v,
@@ -60,8 +60,14 @@ func (cll *CircularLinkedList) Pop() bool {
 	return true
 }
 
-func (cll *CircularLinkedList) Unshift() {
-
+func (cll *CircularLinkedList) Shift() bool {
+	if cll.Head == nil {
+		return false
+	}
+	if cll.Head.Next == cll.Head {
+		cll.Head = nil
+		return false
+	}
 }
 
 // Exercise 2: Implement a method Search(value int) *Node that searches for the first occurrence of the given value in the circular linked list and returns the corresponding node. If the value is not found, the method should return nil.
