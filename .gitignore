@@ -1,1 +1,4 @@
 .vscode
+pkg/.DS_Store
+pkg/linkedlist/.DS_Store
+pkg/stack/.DS_Store
