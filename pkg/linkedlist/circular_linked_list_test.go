@@ -26,7 +26,7 @@ func TestCircularLinkedList(t *testing.T) {
 		t.Errorf("Expected 25 as the tail but got %v", curr.Value)
 	}
 
-	// Chech head after shift
+	// Chech head after unshift
 	cll.Unshift(5)
 	if cll.Head.Value != 5 {
 		t.Errorf("Expected 5 as the head but got %v", cll.Head.Value)
@@ -40,6 +40,12 @@ func TestCircularLinkedList(t *testing.T) {
 		}
 		if curr.Value != 20 {
 			t.Errorf("Expected 20 as the tail but got %v", curr.Value)
+		}
+	}
+
+	if cll.Shift() {
+		if cll.Head.Value != 10 {
+			t.Errorf("Expected 10 as the tail but got %v", cll.Head.Value)
 		}
 	}
 

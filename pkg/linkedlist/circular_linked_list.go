@@ -68,6 +68,16 @@ func (cll *CircularLinkedList) Shift() bool {
 		cll.Head = nil
 		return false
 	}
+
+	oldHead := cll.Head
+	cll.Head = cll.Head.Next
+	curr := cll.Head
+	for curr.Next != oldHead {
+		curr = curr.Next
+	}
+	curr.Next = cll.Head
+
+	return true
 }
 
 // Exercise 2: Implement a method Search(value int) *Node that searches for the first occurrence of the given value in the circular linked list and returns the corresponding node. If the value is not found, the method should return nil.
