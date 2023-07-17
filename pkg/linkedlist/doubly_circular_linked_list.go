@@ -85,10 +85,6 @@ func (dcll *DoublyCircularLinkedList) Shift() {
 	dcll.Tail.Next = dcll.Head
 }
 
-func (dcll DoublyCircularLinkedList) Reverse() {
-
-}
-
 func (dcll *DoublyCircularLinkedList) Print() {
 	if dcll.Head == nil {
 		return
