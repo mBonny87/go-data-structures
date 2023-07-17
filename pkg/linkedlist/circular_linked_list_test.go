@@ -1,6 +1,9 @@
 package linkedlist
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestCircularLinkedList(t *testing.T) {
 	cll := CircularLinkedList{}
@@ -48,5 +51,10 @@ func TestCircularLinkedList(t *testing.T) {
 			t.Errorf("Expected 10 as the tail but got %v", cll.Head.Value)
 		}
 	}
+
+	cll.Print()
+	cll.Reverse()
+	fmt.Println("Reversed")
+	cll.Print()
 
 }

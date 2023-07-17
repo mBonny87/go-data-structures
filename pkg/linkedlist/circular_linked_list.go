@@ -80,13 +80,31 @@ func (cll *CircularLinkedList) Shift() bool {
 	return true
 }
 
-// Exercise 2: Implement a method Search(value int) *Node that searches for the first occurrence of the given value in the circular linked list and returns the corresponding node. If the value is not found, the method should return nil.
+func (cll *CircularLinkedList) Reverse() bool {
+	if cll.Head == nil {
+		return false
+	}
+	if cll.Head.Next == cll.Head {
+		return false
+	}
 
-// Exercise 3: Implement a method Size() int that returns the number of nodes in the circular linked list.
+	prev := cll.Head
 
-// Exercise 4: Implement a method ToArray() []int that converts the circular linked list to an array and returns it. The array should contain the values of the nodes in the same order as they appear in the circular linked list.
+	for prev.Next != cll.Head {
+		prev = prev.Next
+	}
 
-// Exercise 5: Implement a method Reverse() that reverses the order of the nodes in the circular linked list.
+	curr := cll.Head
+	for curr.Next != cll.Head {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
+	}
+	curr.Next = prev
+	cll.Head = curr
+	return true
+}
 
 func (cll *CircularLinkedList) Print() {
 	curr := cll.Head
@@ -94,4 +112,6 @@ func (cll *CircularLinkedList) Print() {
 		fmt.Println("Value:", curr.Value)
 		curr = curr.Next
 	}
+	// print last value
+	fmt.Println("Value:", curr.Value)
 }
