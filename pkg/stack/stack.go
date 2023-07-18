@@ -64,9 +64,3 @@ func (s *Stack) Size() int {
 func (s *Stack) Clear() {
 	s.Top = nil
 }
-
-// # Exercise 1
-
-// Implement the following operations for a Stack:
-
-// Exercise 3: Implement a method Clear() that removes all elements from the stack, effectively emptying it.
