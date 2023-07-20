@@ -7,8 +7,6 @@ type PriorityQueue struct {
 	Rear  *Node
 }
 
-//this is a case with an array queue of length 5
-
 func (cq *PriorityQueue) Enqueue(v int, p int) {
 	if cq.Front == nil {
 		cq.Front = &Node{Value: v, Next: nil, Priority: p}

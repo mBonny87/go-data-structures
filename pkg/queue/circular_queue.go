@@ -1,11 +1,9 @@
-package queue
+// package queue
 
 // type CircularQueue struct {
 // 	Front *Node
 // 	Rear  *Node
 // }
-
-// //this is a case with an array queue of length 5
 
 // func (cq *CircularQueue) Enqueue(v int) {
 // }

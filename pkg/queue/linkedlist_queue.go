@@ -7,8 +7,6 @@ type LinkedListQueue struct {
 	Rear  *Node
 }
 
-//this is a case with an array queue of length 5
-
 func (llq *LinkedListQueue) Enqueue(v int) {
 	if llq.Front == nil {
 		llq.Front = &Node{Value: v, Next: nil}
