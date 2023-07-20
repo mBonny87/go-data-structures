@@ -1,5 +1,7 @@
 package queue
 
+import "fmt"
+
 type PriorityQueue struct {
 	Front *Node
 	Rear  *Node
@@ -63,17 +65,43 @@ func (cq *PriorityQueue) Dequeue() {
 
 }
 
-// func (cq *PriorityQueue) Peek() int {
-// }
+func (cq *PriorityQueue) Peek() int {
+	if cq.Front == nil {
+		return 0
+	}
+	return cq.Front.Value
+}
 
-// func (cq *PriorityQueue) IsEmpty() bool {
-// }
+func (cq *PriorityQueue) IsEmpty() bool {
+	return cq.Front == nil
+}
 
-// func (cq *PriorityQueue) Size() int {
-// }
+func (cq *PriorityQueue) Size() int {
+	if cq.Front == nil {
+		return 0
+	}
+	i := 1
+	curr := cq.Front
+	for curr.Next != nil {
+		i++
+		curr = curr.Next
+	}
+	return i
+}
 
 func (cq *PriorityQueue) Clear() {
+	cq.Front = nil
+	cq.Rear = nil
 }
 
 func (cq *PriorityQueue) Print() {
+	if cq.Front == nil {
+		return
+	}
+	curr := cq.Front
+	for curr.Next != nil {
+		fmt.Println(curr.Value)
+		curr = curr.Next
+	}
+	fmt.Println(curr.Value)
 }
